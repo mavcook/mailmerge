@@ -49,7 +49,7 @@ def sendmail(text, config_filename):
         sendmail.password = getpass.getpass(prompt)
 
     # Parse message headers
-    message = email.parser.Parser().parsestr(text)
+    message = email.parser.Parser().parsestr(text.encode('utf-8'))
 
     # Connect to SMTP server
     if sendmail.security == "SSL/TLS":
